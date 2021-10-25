@@ -6,6 +6,7 @@ let lockBoard = false;
 //função para virar a carta
 function flipCard() {
   if (lockBoard) return;
+  if (this === firstCard) return;
   this.classList.add('flip');
   if (!hasFlippedCard) {
     hasFlippedCard = true;
@@ -30,16 +31,28 @@ function checkForMath() {
 function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
+
+  resetBoard();
 }
 
 //função para desvirar as cartas
 function unflipCards() {
+  lockBoard = true;
   setTimeout(() => {
     firstCard.classList.remove('flip');
     secondCard.classList.remove('flip');
+
+    resetBoard();
   }, 1500)
 }
 
+//função que vai resetar o tabuleiro
+function resetBoard() {
+  [hasFlippedCard, lockBoard] = [false, false];
+  [firstCard, secondCard] = [null, null];
+}
+
+//evento de clique da carta
 cards.forEach((card) => {
   card.addEventListener('click', flipCard)
 })
