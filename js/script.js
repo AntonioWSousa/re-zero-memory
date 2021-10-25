@@ -2,6 +2,8 @@ const cards = document.querySelectorAll('.card');
 let hasFlippedCard = false;
 let firstCard, secondCard;
 let lockBoard = false;
+let stats = document.getElementById('score')
+let score = 0;
 
 //função para virar a carta
 function flipCard() {
@@ -22,7 +24,10 @@ function flipCard() {
 function checkForMatch() {
   if (firstCard.dataset.card === secondCard.dataset.card) {
     disableCards(); // condicional para saber se a primeira carta e a segunda carta são exatamente iguais, então vai chamar disabeCard, porque, se as cartas forem exatamente iguais, vai desablitar o clique da carta clicada
-    return;
+    score++
+    stats.innerHTML = "Placar - " + score
+    console.log(score)
+    return
   }
   unflipCards();
 }
@@ -38,6 +43,7 @@ function disableCards() {
 //função para desvirar as cartas
 function unflipCards() {
   lockBoard = true;
+
   setTimeout(() => {
     firstCard.classList.remove('flip');
     secondCard.classList.remove('flip');
@@ -63,4 +69,9 @@ function resetBoard() {
 //evento de clique da carta
 cards.forEach((card) => {
   card.addEventListener('click', flipCard);
-})
+});
+
+//função para reiniciar o jogo
+function reloadGame() {
+  location.reload();
+};

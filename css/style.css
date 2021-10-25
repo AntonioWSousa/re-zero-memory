@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Odor Mean Chey', serif;
 }
 
 body {
@@ -62,4 +63,29 @@ body {
 
 .card.flip {
   transform: rotateY(180deg);
+}
+
+.result {
+  position: relative;
+  color: #fffafa;
+  font-size: 22px;
+  text-transform: uppercase;
+  margin: 16px;
+  margin-top: 196px;
+}
+
+button {
+  height: 60px;
+  width: 120px;
+  position: relative;
+  cursor: pointer;
+  border-color: rgb(156, 110, 241);
+  background: 28px;
+  font-size: 22px;
+  color: #fffafa;
+}
+
+button:hover {
+  color: rgb(14, 13, 13);
+  background-color: rgb(128, 111, 161);
 }
