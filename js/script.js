@@ -15,11 +15,11 @@ function flipCard() {
   }
   secondCard = this;
   hasFlippedCard = false;
-  checkForMath();
+  checkForMatch();
 }
 
 //função para checar se a primeira carta e a segunda carta são iguais
-function checkForMath() {
+function checkForMatch() {
   if (firstCard.dataset.card === secondCard.dataset.card) {
     disableCards(); // condicional para saber se a primeira carta e a segunda carta são exatamente iguais, então vai chamar disabeCard, porque, se as cartas forem exatamente iguais, vai desablitar o clique da carta clicada
     return;
@@ -52,7 +52,15 @@ function resetBoard() {
   [firstCard, secondCard] = [null, null];
 }
 
+//função para embaralhar as cartas
+(function shuffle() {
+  cards.forEach((card) => {
+    let ramdomPosition = Math.floor(Math.random() * 12);
+    card.style.order = ramdomPosition;
+  })
+})();
+
 //evento de clique da carta
 cards.forEach((card) => {
-  card.addEventListener('click', flipCard)
+  card.addEventListener('click', flipCard);
 })

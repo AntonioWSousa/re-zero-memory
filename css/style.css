@@ -19,7 +19,7 @@ body {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
-  perspective: 100px;
+  perspective: 1000px;
   /* perspectiva do usuario no eixo z, quanto maior, maior o efeito da perspectiva */
 }
 
