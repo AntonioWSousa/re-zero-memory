@@ -52,3 +52,14 @@ body {
   backface-visibility: hidden;
   /* todo elemento tem uma frente e um verso (ao contrário, como um espelho.) essa propriedade retira o verso */
 }
+
+.card-front {
+  transform: rotateY(180deg);
+  /* Sem este estilo, o verso aparecia transparente, porque ambas as imagens têm position absolute. Ao girar no eixo Y, os versos das cartas permanecem virados*/
+}
+
+/* flip card animation */
+
+.card.flip {
+  transform: rotateY(180deg);
+}
